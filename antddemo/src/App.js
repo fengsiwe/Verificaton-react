@@ -1,5 +1,4 @@
 
-import Clock from './components/Clock';
 import OperatingPage from "./components/OperatingPage";
 import Login from "./components/Login";
 import logo from './logo.svg';
@@ -17,7 +16,6 @@ function App() {
   return (
     <div className="App">
         <OperatingPage/>
-        <Clock/>
         <Login/>
     </div>
 
