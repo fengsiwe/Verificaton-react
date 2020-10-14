@@ -1,9 +1,21 @@
 import React,{Component} from "react";
 import { Layout, Menu, Breadcrumb } from 'antd';
 import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
+import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
+const containerStyle = {
+    width: '100%',
+    height: '400px'
+};
+const center = {
+    lat: -41.286461,
+    lng: 174.776230
+};
+
+
 
 export default class OperatingPage extends Component{
 
@@ -20,7 +32,7 @@ export default class OperatingPage extends Component{
                         </Menu>
                     </Header>
                     <Layout>
-                        <Sider width={200} className="site-layout-background">
+                        <Sider width={300} className="site-layout-background">
                             <Menu
                                 mode="inline"
                                 defaultSelectedKeys={['1']}
@@ -61,11 +73,26 @@ export default class OperatingPage extends Component{
                                     minHeight: 280,
                                 }}
                             >
-                                Content
+                                <LoadScript
+                                    googleMapsApiKey="AIzaSyAG4D6tBXQndD5lwpWB3zYNm-tB57AkJQY"
+                                >
+                                    <GoogleMap
+                                        mapContainerStyle={containerStyle}
+                                        center={center}
+                                        zoom={10}
+                                    >
+                                        <Marker
+                                            position={center}
+                                            clickable={true}
+                                        ></Marker>
+                                    </GoogleMap>
+                                </LoadScript>
                             </Content>
                         </Layout>
                     </Layout>
                 </Layout>
+
+
             </div>
         )
 
