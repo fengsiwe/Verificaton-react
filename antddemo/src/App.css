@@ -16,6 +16,9 @@
   float: left;
 }
 
+.ant-input-affix-wrapper{
+  width:200px;
+}
 .site-layout-background {
   background: #fff;
 }
