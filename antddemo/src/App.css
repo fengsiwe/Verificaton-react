@@ -4,8 +4,10 @@
   /*text-align: center;*/
 }
 .ant-btn {
-  font-size: 18px;
   height: auto;
+  width: 100%;
+  border-radius: 20px;
+  color:grey;
 }
 
 #components-layout-demo-top-side-2 .logo {
@@ -20,6 +22,10 @@
 /*  width:200px;*/
 /*}*/
 
+.ant-input-affix-wrapper{
+  border-radius: 20px;
+
+}
 
 .site-layout-background {
   background: #fff;

@@ -1,83 +1,98 @@
-import React,{useState,useEffect} from "react";
-import { Input,Row, Col,Form, Button, Checkbox  } from 'antd';
-import { UserOutlined } from '@ant-design/icons';
-import { Layout } from 'antd';
+import React, {useState, useEffect} from "react";
+import {Input, Row, Col, Form, Button, Checkbox} from 'antd';
+import {UserOutlined, TwitterOutlined, FacebookOutlined, InstagramOutlined} from '@ant-design/icons';
+import {Layout} from 'antd';
 import './Login.css'
 
-const { Header, Footer, Content } = Layout;
+const {Header, Footer, Content} = Layout;
 
-const layout = {
-    labelCol: { span: 8 },
-    wrapperCol: { span: 16 },
-};
 const tailLayout = {
-    wrapperCol: { offset: 8, span: 16 },
+    wrapperCol: {offset: 8, span: 16},
 };
 
 
-const Login= () =>{
+const Login = () => {
 
+    const [login] = Form.useForm()
+    let verifyLogin = '';
     const onFinish = values => {
         console.log('Success:', values);
+        if (values.username === 'username' && values.password === 'password') {
+            verifyLogin = true;
+        } else {
+            verifyLogin = false;
+        }
     };
+
 
     const onFinishFailed = errorInfo => {
         console.log('Failed:', errorInfo);
     };
 
-    return(
+    return (
         <div>
+            <Layout style={{ height: '100vh' }}>
+                <Header></Header>
+                <Content className='loginBackground'>
+                    <div className='blackShadow'>
+                        <div className='loginTab'>
+                            <Form
 
-            <Layout>
-                <Header>Header</Header>
-                <Content>
-                   <div className='loginBackground'>
-                       <div className='loginTab'>
-                           <Form
-                               {...layout}
-                               name="basic"
-                               initialValues={{ remember: true }}
-                               onFinish={onFinish}
-                               onFinishFailed={onFinishFailed}
-                           >
-                           <Row gutter={[16, 16]}>
+                                form={login}
+                                initialValues={{remember: false}}
+                                onFinish={onFinish}
+                                onFinishFailed={onFinishFailed}
+                            >
+                                <Row>
 
-                               <Form.Item
-                                   label="Username"
-                                   name="username"
-                                   rules={[{ required: true, message: 'Please input your username!' }]}
-                               >
-                                   <Col> <Input placeholder="Username" prefix={<UserOutlined />} className='username'/></Col>
-                               </Form.Item>
+                                    <Form.Item
 
-                           </Row>
-                           <Row gutter={[16, 16]}>
-                               <Form.Item
-                                   label="Password"
-                                   name="password"
-                                   rules={[{ required: true, message: 'Please input your password!' }]}
-                               >
-                                   <Col><Input.Password placeholder="Password"/></Col>
-                               </Form.Item>
-                           </Row>
+                                        name="username"
+                                        rules={[{required: true, message: 'Please input your username!'}]}
 
-                               <Form.Item {...tailLayout} name="remember" valuePropName="checked">
-                                   <Checkbox>Remember me</Checkbox>
-                               </Form.Item>
+                                    >
+                                        <Input placeholder="Username"
+                                               prefix={<UserOutlined style={{color: 'grey'}}/>}
+                                               className='username'
+                                               style={{width:'250px'}}
+                                        />
+                                    </Form.Item>
 
-                               <Form.Item {...tailLayout}>
-                                   <Button type="primary" htmlType="submit">
-                                       Submit
-                                   </Button>
-                               </Form.Item>
-                           </Form>
-                       </div>
-                   </div>
+                                </Row>
+                                <Row>
+                                    <Form.Item
+                                        name="password"
+                                        rules={[{required: true, message: 'Please input your password!'}]}
+                                        style={{width:'250px'}}
+                                    >
+                                        <Input.Password placeholder="Password" className='password'/>
+                                    </Form.Item>
+                                </Row>
+
+                                <Form.Item>
+                                    <Button htmlType="submit">
+                                        Submit
+                                    </Button>
+                                </Form.Item>
+                                <Form.Item>
+                                    <Row>
+                                        <Col xs={{span: 5, offset: 1}} lg={{span: 6, offset: 2}}><TwitterOutlined
+                                            style={{fontSize: '30px', color: 'white'}}/></Col>
+                                        <Col xs={{span: 11, offset: 1}} lg={{span: 6, offset: 2}}><FacebookOutlined
+                                            style={{fontSize: '30px', color: 'white'}}/></Col>
+                                        <Col xs={{span: 5, offset: 1}} lg={{span: 6, offset: 2}}><InstagramOutlined
+                                            style={{fontSize: '30px', color: 'white'}}/></Col>
+                                    </Row>
+
+
+                                </Form.Item>
+
+                            </Form>
+                        </div>
+                    </div>
                 </Content>
                 <Footer>Footer</Footer>
             </Layout>
-
-
 
 
         </div>

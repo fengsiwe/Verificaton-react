@@ -1,12 +1,22 @@
-.loginBackground{
+.loginBackground {
     width:100%;
-    height:100%;
+    background-image:url("../imgs/background.jpg");
+    background-size:100% 100%;
+    background-repeat: no-repeat;
+}
+.blackShadow{
+    width: 100%;
+    height: 100%;
     display:flex;
     justify-content:center;
     align-items:center;
-    background-color:white;
+    background-color: #282c34;
+    background-color: rgba(0, 0,0, 0.4);
 }
-.loginTab{
-    width:20%;
-    background-color:white;
+.loginTab {
+    padding: 120px 100px 100px 100px;
+    border-radius: 10px;
 }
+
+
+
