@@ -1,8 +1,7 @@
 
 import OperatingPage from "./components/OperatingPage";
 import Login from "./components/Login";
-import logo from './logo.svg';
-import { Table, Button} from 'antd'
+
 
 
 import {BrowserRouter,Route,Switch} from 'react-router-dom';

@@ -3,6 +3,7 @@ import {Input, Row, Col, Form, Button, Checkbox} from 'antd';
 import {UserOutlined, TwitterOutlined, FacebookOutlined, InstagramOutlined} from '@ant-design/icons';
 import {Layout} from 'antd';
 import './Login.css'
+import {NavLink} from 'react-router-dom';
 
 const {Header, Footer, Content} = Layout;
 
@@ -21,6 +22,7 @@ const Login = () => {
             verifyLogin = true;
         } else {
             verifyLogin = false;
+            console.log('fail to log in!')
         }
     };
 
@@ -37,7 +39,6 @@ const Login = () => {
                     <div className='blackShadow'>
                         <div className='loginTab'>
                             <Form
-
                                 form={login}
                                 initialValues={{remember: false}}
                                 onFinish={onFinish}
@@ -68,12 +69,17 @@ const Login = () => {
                                         <Input.Password placeholder="Password" className='password'/>
                                     </Form.Item>
                                 </Row>
-
                                 <Form.Item>
+
                                     <Button htmlType="submit">
-                                        Submit
+                                        <NavLink to="/page1"
+                                        >
+                                        L O G I N
+                                        </NavLink>
                                     </Button>
+
                                 </Form.Item>
+
                                 <Form.Item>
                                     <Row>
                                         <Col xs={{span: 5, offset: 1}} lg={{span: 6, offset: 2}}><TwitterOutlined
